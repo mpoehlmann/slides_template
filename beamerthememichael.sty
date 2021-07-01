@@ -1,0 +1,28 @@
+%-------------------------
+% Combines all the parts of the theme into the main theme so it can be used without specifying each part of the theme.
+% https://www.lucidchart.com/techblog/2016/12/07/how-to-make-a-presentation-in-latex/
+% \mode<presentation>
+%-------------------------
+
+\mode<presentation>
+
+% Arguments
+\DeclareOptionBeamer{conference}{\PassOptionsToPackage{conference=#1}{beamerinnerthememichael}}
+\ProcessOptionsBeamer
+
+% Requirement
+\usepackage[T1]{fontenc}
+\usepackage{color}
+\usepackage{tikz}
+\usepackage{xcolor}
+
+% Settings
+\usecolortheme{michael}
+\usefonttheme{michael}
+\useinnertheme{michael}
+\useoutertheme{michael}
+
+\setbeamertemplate{navigation symbols}{}
+\setbeamersize{text margin left=0px, text margin right=0px}
+
+\mode<all>
