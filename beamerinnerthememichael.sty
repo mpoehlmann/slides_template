@@ -4,67 +4,44 @@
 
 \mode<presentation>
 
-% Arguments 
-\DeclareOptionBeamer{conference}{\def\beamer@michael@conference{#1}}    
-\ProcessOptionsBeamer
 
-\setbeamertemplate{background}{
-    \begin{tikzpicture}
-    \useasboundingbox (0,0) rectangle (\the\paperwidth,\the\paperheight);
-    \fill[color=primary] (0,0) rectangle (\the\paperwidth,\the\paperheight);
-    \ifnum\thepage>1\relax%
-        \fill[white,opacity=1] (0,0) rectangle(\the\paperwidth,\the\paperheight);
-    \fi
-    \end{tikzpicture}
-}
+% Arguments
+\DeclareOptionBeamer{group}{\def\beamer@michael@group{#1}}
+\ProcessOptionsBeamer
 
 
 % Title page
-\defbeamertemplate*{title page}{michael}[1][] { 
-    % \vskip6cm%
-    \begin{beamercolorbox}[wd=\paperwidth,#1]{title page header}
-        \usebeamerfont{title}\inserttitle\par%
-    \end{beamercolorbox}%
-    \begin{beamercolorbox}[wd=\paperwidth,#1]{author}
-        \usebeamerfont{author}\insertauthor%
-    \end{beamercolorbox}%
-    \begin{beamercolorbox}[wd=\paperwidth,#1]{date}
-        \usebeamerfont{author}\insertdate%
-    \end{beamercolorbox}%
-    \begin{beamercolorbox}[wd=\paperwidth,#1]{conference}
-        \beamer@michael@conference%
+\defbeamertemplate*{title page}{michael}[1][]
+{
+  \begin{tikzpicture}[remember picture,overlay]
+    \node[at=(current page.center), fill=primary, minimum width=\paperwidth, minimum height=\paperheight] {};
+  \end{tikzpicture}
+  \vfill
+  \begingroup
+    \centering
+    \begin{beamercolorbox}[left, leftskip=2\edgespacing, #1]{title}
+      \usebeamerfont{title}\inserttitle\par%
+      \ifx\insertsubtitle\@empty%
+      \else%
+        \vskip0.25em%
+        {\usebeamerfont{subtitle}\insertsubtitle\par}%
+      \fi%
     \end{beamercolorbox}
+    \begin{beamercolorbox}[wd=\paperwidth, colsep=1pt]{title separation line}\end{beamercolorbox}
+    \vskip1em\par
+    \begin{beamercolorbox}[left, leftskip=2\edgespacing, #1]{title}
+      \usebeamerfont{author}\insertauthor
+    \end{beamercolorbox}
+    % \ifx\beamer@michael@group\@empty%
+    % \else%
+    %   \begin{beamercolorbox}[left, leftskip=2\edgespacing, #1]{title}
+    %     % \usebeamerfont{institute}\insertinstitute
+    %     \vskip0.125em%
+    %     \usebeamerfont{group}\beamer@michael@group
+    %   \end{beamercolorbox}
+    % \fi%
+  \endgroup
 }
 
-
-% \setbeamertemplate{background}{
-%   \begin{tikzpicture}
-%   \useasboundingbox (0,0) rectangle(\the\paperwidth,\the\paperheight);
-%   \fill[color=brown] (0,2) rectangle (\the\paperwidth,\the\paperheight);
-%   \fill[color=orange] (0,0) rectangle(2.95,1.9);
-%   \fill[color=blue!50!cyan!80] (3.05,0) rectangle(\the\paperwidth,1.9);
-%   \ifnum\thepage>1\relax%
-%   \fill[white,opacity=1] (0,0) rectangle(\the\paperwidth,\the\paperheight);
-%   \fi
-%   \end{tikzpicture}
-% }
-
-% % Title page
-% \defbeamertemplate*{title page}{texsx}[1][]
-% { 
-%   \vskip6cm%
-%     \begin{beamercolorbox}[wd=12cm,leftskip=3cm,sep=8pt,#1]{title page header}
-%       \usebeamerfont{title}\inserttitle\par%
-%     \end{beamercolorbox}%
-%     \vskip0.75cm%
-%     \begin{beamercolorbox}[wd=12cm,leftskip=3cm,#1]{author}
-%       \usebeamerfont{author}\insertauthor%
-%     \end{beamercolorbox}
-%      \vskip0.2cm%
-%     \begin{beamercolorbox}[wd=12cm,leftskip=3cm,#1]{date}
-%       \usebeamerfont{author}\insertdate%
-%     \end{beamercolorbox}
-%   \vfill
-% }
 
 \mode<all>

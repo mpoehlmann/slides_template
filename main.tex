@@ -1,15 +1,18 @@
-\documentclass[aspectratio=1610,t]{beamer}
-\usepackage[utf8]{inputenc}
+\documentclass[aspectratio=1610, t]{beamer}  % Frame size = 160mm x 100mm
+% \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
+
+% \input{preamble}
 
 \title{Sample Title}
 \subtitle{Sample Subtitle}
-\author{Michael Poehlmann}
+\author[M. Poehlmann]{Michael Poehlmann}
+% \authorgroup{Offline group}
 \institute{UC Davis}
 \date{\today}
+% \conference{DS Offline Meeting}
 
-\usetheme[conference=My Conference]{michael}
-
+\usetheme[conference=DS~Offline~Meeting, group=Offline~group]{michael}
 
 \begin{document}
 
@@ -31,7 +34,7 @@
 \end{frame}
 
 \begin{frame}
-	\frametitle{Columns are good}
+	\frametitle{Overview}
 	\begin{columns}
 		\column{0.45\textwidth}
 

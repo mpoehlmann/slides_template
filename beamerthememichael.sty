@@ -1,28 +1,71 @@
 %-------------------------
 % Combines all the parts of the theme into the main theme so it can be used without specifying each part of the theme.
 % https://www.lucidchart.com/techblog/2016/12/07/how-to-make-a-presentation-in-latex/
-% \mode<presentation>
+%
+% Add a * to a command to reset the properties
+% \begin{beamercolorbox}: defined in beamercolortheme
+% \usebeamerfont: defined in beamerfonttheme
 %-------------------------
 
 \mode<presentation>
 
 % Arguments
-\DeclareOptionBeamer{conference}{\PassOptionsToPackage{conference=#1}{beamerinnerthememichael}}
+\DeclareOptionBeamer{conference}{\PassOptionsToPackage{conference=#1}{michael}}
+\DeclareOptionBeamer{group}{\PassOptionsToPackage{group=#1}{michael}}
+\DeclareOptionBeamer{grid}{\def\beamer@michael@grid{#1}}
 \ProcessOptionsBeamer
 
-% Requirement
+% Requirements
 \usepackage[T1]{fontenc}
 \usepackage{color}
 \usepackage{tikz}
 \usepackage{xcolor}
+\usepackage{fontspec}
+\usepackage{calc}
+
+% Commands
+% \newcommand{\conference}[1]{\gdef\insertconference{#1}}
+% \newcommand{\authorgroup}[1]{\gdef\insertauthorgroup{#1}}
+
+% Font
+\usefonttheme{professionalfonts}
+\usefonttheme{serif}
+\setmainfont{Proxima Nova}
+% \setmainfont{Times New Roman}
+
+% Variables
+\newdimen{\edgespacing}
+\setlength{\edgespacing}{3mm}
 
 % Settings
 \usecolortheme{michael}
 \usefonttheme{michael}
 \useinnertheme{michael}
 \useoutertheme{michael}
+% \usepackage{theme/beamercolorthememichael}
+% \usepackage{theme/beamerfontthememichael}
+% \usepackage{theme/beamerinnerthememichael}
+% \usepackage{theme/beamerouterthememichael}
 
 \setbeamertemplate{navigation symbols}{}
-\setbeamersize{text margin left=0px, text margin right=0px}
+\setbeamersize{text margin left=\edgespacing, text margin right=\edgespacing}
+
+
+% Grid in background (FIXME)
+% \ifx\beamer@michael@grid\emgridpty
+% \else
+%   \setbeamertemplate{background}{
+%     \tikz[overlay, remember picture, help lines]{
+%       \foreach \x in {0,...,12}
+%         \path (current page.south west) +(\x,9.25) node {\small$\x$};
+%       \foreach \y in {0,...,9}
+%         \path (current page.south west) +(12.5,\y) node {\small$\y$};
+%       \foreach \x in {0,0.5,...,12.5}
+%         \draw (current page.south west) ++(\x,0) -- +(0,9.6);
+%       \foreach \y in {0,0.5,...,9.5}
+%         \draw (current page.south west) ++(0,\y) -- +(12.8,0);
+%     }
+% \fi
+
 
 \mode<all>

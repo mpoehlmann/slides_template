@@ -1,16 +1,37 @@
 %-------------------------
 % Defines the appearance of the chrome of the slide, e.g., the title and footer of each slide
 %-------------------------
-
 \mode<presentation>
 
-% \defbeamertemplate*{frametitle}{michael}[1][left]{
-%  \tikz[remember picture,overlay]{
-%      \node(a)[anchor=west]{\usebeamerfont{frametitle}\insertframetitle};
-%      \draw[line width=0.2em, headerline](a.south west)--+(10,0);
-%   }
-%   \vskip1em 
-% } 
+% Arguments
+\DeclareOptionBeamer{conference}{\def\beamer@michael@conference{#1}}
+\ProcessOptionsBeamer
+
+% Footer
+\defbeamertemplate*{footline}{michael}
+{
+  \begingroup
+    \centering
+    \usebeamerfont{footer text}
+      \begin{beamercolorbox}[wd=\paperwidth, ht=2.75ex, dp=1.5ex, left, leftskip=\edgespacing, rightskip=\edgespacing]{footer text}
+      \makebox[0.33\dimexpr\textwidth-\leftskip-\rightskip][l]{\insertshortauthor\expandafter~$|$~\insertshortinstitute}%  % $\big|$
+      % \makebox[0.34\dimexpr\textwidth-\leftskip-\rightskip][c]{\beamer@michael@conference~$|$~\insertshortdate}%
+      \makebox[0.33\dimexpr\textwidth-\leftskip-\rightskip][r]{\insertframenumber{} / \inserttotalframenumber}%
+    \end{beamercolorbox}
+  \endgroup
+  \vskip0pt%
+}
+
+% Slide titles
+\defbeamertemplate*{frametitle}{michael}
+{
+  \nointerlineskip%
+  \begin{beamercolorbox}[wd=\paperwidth, ht=2.25ex, dp=0.75ex, left, leftskip=\edgespacing, rightskip=\edgespacing]{frametitle}  % dp=0.875ex
+    \usebeamerfont{frametitle}\insertframetitle
+  \end{beamercolorbox}%
+  \nointerlineskip%
+  \begin{beamercolorbox}[wd=\paperwidth, colsep=0.75pt]{frametitle separation line}\end{beamercolorbox}
+}
 
 \mode<all>
 

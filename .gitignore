@@ -1,0 +1,10 @@
+__pycache__
+.ipynb_checkpoints
+.DS_Store
+*.pyc
+*.so
+.virtual_documents/
+.vscode/
+*.egg-info/
+*.egg
+output/

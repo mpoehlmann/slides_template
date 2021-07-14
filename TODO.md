@@ -1,0 +1,2 @@
+- weird bars in footer
+- Alignment on title page
