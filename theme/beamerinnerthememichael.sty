@@ -4,6 +4,16 @@
 
 \mode<presentation>
 
+% Itemize
+\defbeamertemplate*{itemize item}{michael}{\usebeamerfont*{itemize item}\raise1pt\hbox{\donotcoloroutermaths$\bullet$}}
+\defbeamertemplate*{itemize subitem}{michael}{\usebeamerfont*{itemize subitem}\raise1.25pt\hbox{\donotcoloroutermaths$\circ$}}
+\defbeamertemplate*{itemize subsubitem}{michael}{\usebeamerfont*{itemize subsubitem}\raise1pt\hbox{\donotcoloroutermaths$\boldsymbol{-}$}}
+
+% Enumerate
+\defbeamertemplate*{enumerate item}{michael}{\insertenumlabel.}
+\defbeamertemplate*{enumerate subitem}{michael}{\insertenumlabel.\insertsubenumlabel}
+\defbeamertemplate*{enumerate subsubitem}{michael}{\insertenumlabel.\insertsubenumlabel.\insertsubsubenumlabel}
+
 % Title page
 \defbeamertemplate*{title page}{michael}[1][]
 {
@@ -21,7 +31,7 @@
         {\usebeamerfont{subtitle}\insertsubtitle\par}%
       \fi%
     \end{beamercolorbox}
-    \begin{beamercolorbox}[wd=\paperwidth, colsep=1pt]{title separation line}\end{beamercolorbox}
+    \begin{beamercolorbox}[wd=\paperwidth, colsep=0.75pt]{title separation line}\end{beamercolorbox}
     \vskip1em\par
     \begin{beamercolorbox}[left, leftskip=2\edgespacing, #1]{title}
       \usebeamerfont{author}\insertauthor
@@ -31,21 +41,51 @@
       \begin{beamercolorbox}[left, leftskip=2\edgespacing, #1]{title}
         % \usebeamerfont{institute}\insertinstitute
         \vskip0.25em%
-        \usebeamerfont{group}\insertauthorgroup
+        \usebeamerfont{authorgroup}\insertauthorgroup
       \end{beamercolorbox}
     \fi%
   \endgroup
 }
 
-% Itemize
-\defbeamertemplate*{itemize item}{michael}{\usebeamerfont*{itemize item}\raise1pt\hbox{\donotcoloroutermaths$\bullet$}}
-\defbeamertemplate*{itemize subitem}{michael}{\usebeamerfont*{itemize subitem}\raise1.25pt\hbox{\donotcoloroutermaths$\circ$}}
-\defbeamertemplate*{itemize subsubitem}{michael}{\usebeamerfont*{itemize subsubitem}\raise1pt\hbox{\donotcoloroutermaths$\boldsymbol{-}$}}
+% Section page
+\defbeamertemplate*{section page}{michael}[1][]
+{
+  \begin{tikzpicture}[remember picture,overlay]
+    \node[at=(current page.center), fill=primary, minimum width=\paperwidth, minimum height=\paperheight] {};
+  \end{tikzpicture}
+  \vfill
+  \begingroup
+    \begin{beamercolorbox}[left, leftskip=2\edgespacing, #1]{title}
+      \usebeamerfont{section title}\insertsectionnumber.~\insertsection\par%
+    \end{beamercolorbox}
+    \begin{beamercolorbox}[wd=\paperwidth, colsep=0.75pt]{title separation line}\end{beamercolorbox}
+  \endgroup
+}
 
-% Enumerate
-\defbeamertemplate*{enumerate item}{michael}{\insertenumlabel.}
-\defbeamertemplate*{enumerate subitem}{michael}{\insertenumlabel.\insertsubenumlabel}
-\defbeamertemplate*{enumerate subsubitem}{michael}{\insertenumlabel.\insertsubenumlabel.\insertsubsubenumlabel}
+% Subsection page (near duplicate of section page)
+\defbeamertemplate*{subsection page}{michael}[1][]
+{
+  \begin{tikzpicture}[remember picture,overlay]
+    \node[at=(current page.center), fill=primary, minimum width=\paperwidth, minimum height=\paperheight] {};
+  \end{tikzpicture}
+  \vfill
+  \begingroup
+    \begin{beamercolorbox}[left, leftskip=2\edgespacing, #1]{title}
+      \usebeamerfont{subsection title}\insertsectionnumber.\insertsubsectionnumber.~\insertsubsection\par%
+    \end{beamercolorbox}
+    \begin{beamercolorbox}[wd=\paperwidth, colsep=0.75pt]{title separation line}\end{beamercolorbox}
+  \endgroup
+}
+
+% Table of contents
+% \setbeamertemplate{section in toc}[sections numbered]
+% \setbeamertemplate{subsection in toc}[subsections numbered]
+
+\defbeamertemplate*{section in toc}{michael}
+{\leavevmode\inserttocsectionnumber.~~\inserttocsection\par}
+
+\defbeamertemplate*{subsection in toc}{michael}
+{\leavevmode\leftskip=1.5em\inserttocsectionnumber.\inserttocsubsectionnumber.~~\inserttocsubsection\par}
 
 
 \mode<all>

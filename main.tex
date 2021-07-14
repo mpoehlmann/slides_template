@@ -4,6 +4,7 @@
 \usepackage{theme/beamerthememichael}
 \setsansfont{Proxima Nova}
 
+
 % Document information
 \title{Sample Title}
 \subtitle{Sample Subtitle}
@@ -13,15 +14,23 @@
 \conference{DS Offline Meeting}
 \date{\today}
 
+
 % Document contents
 \begin{document}
-\import{./slides}{titlepage.tex}
+
+\frame{\titlepage}
 \import{./slides}{outline.tex}
 
 \section{Basic Examples}
+\frame{\sectionpage}
 \import{./slides}{example_itemize.tex}
+\import{./slides}{example_columns.tex}
 
 \section{More Examples}
-\import{./slides}{example_twocol.tex}
+\frame{\sectionpage}
+\subsection{My Subsection}
+\frame{\subsectionpage}
+\subsubsection{My Subsubsection}
 \import{./slides}{example_blocks.tex}
+
 \end{document}
