@@ -18,27 +18,21 @@
 \RequirePackage{color}
 \RequirePackage{tikz}
 \RequirePackage{xcolor}
-\RequirePackage{fontspec}
 \RequirePackage{calc}
-
-% Font
-\usefonttheme{professionalfonts}
-\usefonttheme{serif}
-\setmainfont{Proxima Nova}
 
 % Variables
 \newdimen{\edgespacing}
-\setlength{\edgespacing}{3mm}
+\setlength{\edgespacing}{4mm}
 
 % Settings
-\usecolortheme{michael}
-\usefonttheme{michael}
-\useinnertheme{michael}
-\useoutertheme{michael}
-% \usepackage{theme/beamercolorthememichael}
-% \usepackage{theme/beamerfontthememichael}
-% \usepackage{theme/beamerinnerthememichael}
-% \usepackage{theme/beamerouterthememichael}
+% \usecolortheme[theme]{michael}
+% \usefonttheme[theme]{michael}
+% \useinnertheme[theme]{michael}
+% \useoutertheme[theme]{michael}
+\usepackage{theme/beamercolorthememichael}
+\usepackage{theme/beamerfontthememichael}
+\usepackage{theme/beamerinnerthememichael}
+\usepackage{theme/beamerouterthememichael}
 
 \setbeamertemplate{navigation symbols}{}
 \setbeamersize{text margin left=\edgespacing, text margin right=\edgespacing}

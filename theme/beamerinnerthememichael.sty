@@ -4,9 +4,6 @@
 
 \mode<presentation>
 
-
-% Arguments
-
 % Title page
 \defbeamertemplate*{title page}{michael}[1][]
 {
@@ -39,6 +36,16 @@
     \fi%
   \endgroup
 }
+
+% Itemize
+\defbeamertemplate*{itemize item}{michael}{\usebeamerfont*{itemize item}\raise1pt\hbox{\donotcoloroutermaths$\bullet$}}
+\defbeamertemplate*{itemize subitem}{michael}{\usebeamerfont*{itemize subitem}\raise1.25pt\hbox{\donotcoloroutermaths$\circ$}}
+\defbeamertemplate*{itemize subsubitem}{michael}{\usebeamerfont*{itemize subsubitem}\raise1pt\hbox{\donotcoloroutermaths$\boldsymbol{-}$}}
+
+% Enumerate
+\defbeamertemplate*{enumerate item}{michael}{\insertenumlabel.}
+\defbeamertemplate*{enumerate subitem}{michael}{\insertenumlabel.\insertsubenumlabel}
+\defbeamertemplate*{enumerate subsubitem}{michael}{\insertenumlabel.\insertsubenumlabel.\insertsubsubenumlabel}
 
 
 \mode<all>
