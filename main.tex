@@ -1,9 +1,8 @@
 \documentclass[aspectratio=1610, t]{beamer}  % Frame size = 160mm x 100mm
 \usepackage{import}
-\usepackage{preamble}
+\usepackage{theme/preamble}
 \usepackage{theme/beamerthememichael}
 \setsansfont{Proxima Nova}
-
 
 % Document information
 \title{Sample Title}
@@ -14,10 +13,8 @@
 \conference{DS Offline Meeting}
 \date{\today}
 
-
 % Document contents
 \begin{document}
-
 \frame{\titlepage}
 \import{./slides}{outline.tex}
 
@@ -32,5 +29,4 @@
 \frame{\subsectionpage}
 \subsubsection{My Subsubsection}
 \import{./slides}{example_blocks.tex}
-
 \end{document}

@@ -6,5 +6,7 @@
 > Michael Poehlmann<br>
 > poehlmann@ucdavis.edu
 
+The output PDF is ``main.pdf``.
+
 ## TODO
 - Alignment of title page titles, bullets, and slide titles
