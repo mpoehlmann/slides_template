@@ -10,22 +10,16 @@
 \mode<presentation>
 
 % Arguments
-\DeclareOptionBeamer{conference}{\PassOptionsToPackage{conference=#1}{michael}}
-\DeclareOptionBeamer{group}{\PassOptionsToPackage{group=#1}{michael}}
-\DeclareOptionBeamer{grid}{\def\beamer@michael@grid{#1}}
-\ProcessOptionsBeamer
+% \DeclareOptionBeamer{grid}{\def\beamer@michael@grid{#1}}
+% \ProcessOptionsBeamer
 
 % Requirements
-\usepackage[T1]{fontenc}
-\usepackage{color}
-\usepackage{tikz}
-\usepackage{xcolor}
-\usepackage{fontspec}
-\usepackage{calc}
-
-% Commands
-% \newcommand{\conference}[1]{\gdef\insertconference{#1}}
-% \newcommand{\authorgroup}[1]{\gdef\insertauthorgroup{#1}}
+\RequirePackage[T1]{fontenc}
+\RequirePackage{color}
+\RequirePackage{tikz}
+\RequirePackage{xcolor}
+\RequirePackage{fontspec}
+\RequirePackage{calc}
 
 % Font
 \usefonttheme{professionalfonts}

@@ -4,8 +4,6 @@
 \mode<presentation>
 
 % Arguments
-\DeclareOptionBeamer{conference}{\def\beamer@michael@conference{#1}}
-\ProcessOptionsBeamer
 
 % Footer
 \defbeamertemplate*{footline}{michael}
@@ -15,7 +13,7 @@
     \usebeamerfont{footer text}
       \begin{beamercolorbox}[wd=\paperwidth, ht=2.75ex, dp=1.5ex, left, leftskip=\edgespacing, rightskip=\edgespacing]{footer text}
       \makebox[0.33\dimexpr\textwidth-\leftskip-\rightskip][l]{\insertshortauthor\expandafter~$|$~\insertshortinstitute}%  % $\big|$
-      % \makebox[0.34\dimexpr\textwidth-\leftskip-\rightskip][c]{\beamer@michael@conference~$|$~\insertshortdate}%
+      \makebox[0.34\dimexpr\textwidth-\leftskip-\rightskip][c]{\insertconference~$|$~\insertshortdate}%
       \makebox[0.33\dimexpr\textwidth-\leftskip-\rightskip][r]{\insertframenumber{} / \inserttotalframenumber}%
     \end{beamercolorbox}
   \endgroup

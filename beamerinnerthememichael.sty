@@ -6,9 +6,6 @@
 
 
 % Arguments
-\DeclareOptionBeamer{group}{\def\beamer@michael@group{#1}}
-\ProcessOptionsBeamer
-
 
 % Title page
 \defbeamertemplate*{title page}{michael}[1][]
@@ -32,14 +29,14 @@
     \begin{beamercolorbox}[left, leftskip=2\edgespacing, #1]{title}
       \usebeamerfont{author}\insertauthor
     \end{beamercolorbox}
-    % \ifx\beamer@michael@group\@empty%
-    % \else%
-    %   \begin{beamercolorbox}[left, leftskip=2\edgespacing, #1]{title}
-    %     % \usebeamerfont{institute}\insertinstitute
-    %     \vskip0.125em%
-    %     \usebeamerfont{group}\beamer@michael@group
-    %   \end{beamercolorbox}
-    % \fi%
+    \ifx\insertauthorgroup\@empty%
+    \else%
+      \begin{beamercolorbox}[left, leftskip=2\edgespacing, #1]{title}
+        % \usebeamerfont{institute}\insertinstitute
+        \vskip0.125em%
+        \usebeamerfont{group}\insertauthorgroup
+      \end{beamercolorbox}
+    \fi%
   \endgroup
 }
 
